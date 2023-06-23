@@ -71,8 +71,6 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'dotenv-rails', groups: [:development, :test]
-
 gem 'unicorn', '~> 6.1.0'
 gem 'pg', '~> 1.3.5'
 gem 'sidekiq', '~> 6.5.5'

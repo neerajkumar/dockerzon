@@ -6,11 +6,6 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# Load dotenv only in development or test environment
-if ['development', 'test'].include? ENV['RAILS_ENV']
-  Dotenv::Railtie.load
-end
-
 module Dockerzon
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -26,7 +21,7 @@ module Dockerzon
 
     config.log_level = :debug
     config.log_tags  = [:subdomain, :uuid]
-    config.logger    = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
+    # config.logger    = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
 
     config.cache_store = :redis_store, ENV['CACHE_URL'],
     { namespace: 'dockerzon::cache' }

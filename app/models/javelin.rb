@@ -1,0 +1,2 @@
+class Javelin < ApplicationRecord
+end

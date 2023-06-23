@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @total_hits = Rails.cache.increment('total_hits')
+    @total_hits = Javelin.last&.thrown#Rails.cache.increment('total_hits')
     @hostname   = Socket.gethostname
 
     ThrowJavelinsJob.perform_later
