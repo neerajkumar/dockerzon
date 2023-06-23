@@ -1,0 +1,6 @@
+.git
+.dockerignore
+.env
+dockerzon/node_modules/
+dockerzon/vendor/bundle/
+dockerzon/tmp/

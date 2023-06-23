@@ -1,0 +1,5 @@
+---
+
+development:
+  url: "postgresql://dockerzon:test_db_password@postgres:5432/dockerzon_development?encoding=utf8&pool=5&timeout=5000"
+
