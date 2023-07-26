@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @post.author %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+<fieldset>
+  <legend>New Comment</legend>
+  <%= render partial: "comments/form", locals: {comment: @comment} -%>
+</fieldset>
+
+<br />
+
+<% @comments.each do |comment| -%>
+  <div><%= comment.description -%></div>
+  <div style="float: right"><strong><%= comment.author -%></strong></div>
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

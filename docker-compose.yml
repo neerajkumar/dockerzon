@@ -28,9 +28,10 @@ services:
       - postgres
       - redis
     ports:
-      - '8010:8010'
+      - '3000:3000'
     env_file:
       - .env
+    command: rails s -b 0.0.0.0
 
   sidekiq:
     build:
@@ -42,14 +43,14 @@ services:
     env_file:
       - .env
 
-  nginx:
-    build:
-      context: .
-      dockerfile: ./Dockerfile.nginx
-    links:
-      - dockerzon
-    ports:
-      - '8020:8020'
+  # nginx:
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile.nginx
+  #   links:
+  #     - dockerzon
+  #   ports:
+  #     - '8020:8020'
 
 volumes:
   dockerzon-postgres:

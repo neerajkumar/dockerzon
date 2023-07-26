@@ -6,4 +6,8 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get '/health_check' => 'pages#health_check'
+  resources :posts do
+    resources :comments
+  end
+
 end

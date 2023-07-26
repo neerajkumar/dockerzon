@@ -1,6 +1,8 @@
 # Dockerfile development version
 FROM ruby:3.2.2 AS dockerzon-development
 
+MAINTAINER Neeraj Kumar <neeraj.kumar@gmail.com>
+
 # Install yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg && apt-key add /root/yarn-pubkey.gpg
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
@@ -21,4 +23,4 @@ RUN bundle install
 RUN yarn install
 
 # Start server
-CMD bundle exec unicorn -c config/unicorn.rb
+# CMD bundle exec unicorn -c config/unicorn.rb
