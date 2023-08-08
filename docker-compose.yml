@@ -11,6 +11,9 @@ services:
       - '5432:5432'
     volumes:
       - dockerzon-postgres:/var/lib/postgresql/data
+    deploy:
+      placement:
+        max_replicas_per_node: 1
 
   redis:
     image: redis:7.0
@@ -18,6 +21,9 @@ services:
       - '6379:6379'
     volumes:
       - dockerzon-redis:/var/lib/redis/data
+    deploy:
+      placement:
+        max_replicas_per_node: 1
 
   dockerzon:
     build:
@@ -32,6 +38,10 @@ services:
     env_file:
       - .env
     command: rails s -b 0.0.0.0
+    deploy:
+      placement:
+        max_replicas_per_node: 1
+
 
   sidekiq:
     build:
@@ -42,6 +52,9 @@ services:
       - redis
     env_file:
       - .env
+    deploy:
+      placement:
+        max_replicas_per_node: 1
 
   # nginx:
   #   build:
