@@ -25,4 +25,4 @@ RUN yarn install
 # Start server
 # CMD bundle exec unicorn -c config/unicorn.rb
 
-expose 4500
+expose 3000
